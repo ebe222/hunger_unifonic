@@ -7,7 +7,7 @@ module HungerUnifonic
     password = credentials[:password]
     mobile = mobile_number.gsub(/[^a-z,0-9]/, "")
     uri = URI("/mobicents/sendSms")
-    params = {userid: username, password: password, to: mobile , sender: sender, format: 'json', messageBodyEncoding: 'UTF8', smscEncoding: 'GSM7', msg: message}
+    params = {userid: username, password: password, to: mobile , sender: sender, format: 'json', messageBodyEncoding: 'UTF8', smscEncoding: 'UCS2', msg: message}
     response = connection.get do |req|
       req.url uri.path
       req.params = params
